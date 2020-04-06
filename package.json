@@ -1,0 +1,9 @@
+{
+  "name": "spectrum-visualizer",
+  "version": "0.1.0",
+  "author": "Natalia Vorobeva",
+  "scripts": {
+    "start": "yarn --cwd ./server dev & yarn --cwd ./client start",
+    "build": "yarn --cwd ./server install && yarn --cwd ./client install"
+  }
+}

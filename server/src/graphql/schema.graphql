@@ -1,0 +1,15 @@
+type Area {
+    id: ID,
+    name: String,
+    frequencies: [Int]
+}
+
+type Coordinate {
+    x: Float,
+    y:Float
+}
+
+type Query {
+    areas: [Area]
+    spectrum(id: ID): [Coordinate]
+}
