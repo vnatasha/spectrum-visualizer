@@ -1,12 +1,12 @@
 type Area {
-    id: ID,
-    name: String,
-    frequencies: [Int]
+    id: ID!
+    name: String!
+    frequencies: [Int!]!
 }
 
 type Coordinate {
-    x: Float,
-    y:Float
+    x: Float!
+    y: Float!
 }
 
 type Query {

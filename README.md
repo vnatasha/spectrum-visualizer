@@ -1,26 +1,49 @@
 # Spectrum visualizer app
 
-This is a simple Apollo GraphQL app for data visualization
+A web application which visualizes spectral data. The spectral data is acquired using nuclear magnetic resonance (NMR) spectroscopy from a blood sample, the provided data are simplified versions of the real-world data
 
-## Project setup
+## Server
+
+The backend is an [Apollo GraphQL server](https://www.apollographql.com/docs/apollo-server/v2) that exposes two queries:
+
+- areas: Returns the names and x-axis ranges for all areas of interest in the spectrum.
+- spectrum: Returns the spectrum data points (_{ x, y }_ coordinates) for a specified area.
+
+### Data Sources
+
+The server loads data from the following files:
+
+-   `server/src/data/spectrum.json`: Defines the area names along with their corresponding x-axis ranges.
+-   `server/src/data/areas.json`: Contains simulated spectral data as an array of _{ x, y }_ coordinates.
+
+## Client
+
+The frontend is built with [React](https://react.dev/learn) and uses the [Apollo GraphQL client](https://www.apollographql.com/docs/react/v2) to fetch data from the server. It visualizes the spectral data using the [Highcharts React library](https://github.com/highcharts/highcharts-react) for interactive charts.
+
+## Development
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- npm >= 10.8.2
+- Node.js = v18
+- yarn >= 1.22.0
+
+### Installation
+
+To install dependencies for both the server and the client, run:
 ```
 yarn build
 ```
 
-### Run the project
+### Running the Application
+
+To start both the server and the client, run:
 ```
 yarn start
 ```
 
-### Browse
-```
-http://localhost:3000
-```
-
-## Built with
-
-* [React](https://github.com/facebook/react) - The view layer
-* [Apollo-server](https://www.apollographql.com/docs/apollo-server/) - The Apollo GraphQL server
-* [Apollo-client](https://www.apollographql.com/docs/react/) - The Apollo GraphQL client(React)
-* [Highcharts React](https://github.com/highcharts/highcharts-react) - The charting framework(wrapper for React)
-* [TypeScript](https://github.com/microsoft/TypeScript) - The strict syntactical superset of JavaScript
+> **NOTE:** 
+> - The web application will be available at: [http://localhost:3000](http://localhost:3000)
+> - The Apollo GraphQL server will be running at: [http://localhost:4000](http://localhost:4000)

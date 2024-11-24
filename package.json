@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "Natalia Vorobeva",
   "scripts": {
+    "clean": "rm -rf server/node_modules && rm -rf client/node_modules",
     "start": "yarn --cwd ./server dev & yarn --cwd ./client start",
     "build": "yarn --cwd ./server install && yarn --cwd ./client install"
   }

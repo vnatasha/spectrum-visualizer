@@ -1,6 +1,9 @@
 import { Server } from './server';
+import dotenv from 'dotenv';
 
-const server = new Server();
+dotenv.config();
+
+const server = new Server({ port: process.env.PORT || 4000 });
 server.run();
 
 export { server };
