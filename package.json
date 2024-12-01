@@ -4,6 +4,7 @@
   "author": "Natalia Vorobeva",
   "scripts": {
     "clean": "rm -rf server/node_modules && rm -rf client/node_modules",
+    "db-init": "yarn --cwd ./server db-init",
     "start": "yarn --cwd ./server dev & yarn --cwd ./client start",
     "build": "yarn --cwd ./server install && yarn --cwd ./client install"
   }

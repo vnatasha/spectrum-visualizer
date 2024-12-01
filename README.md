@@ -6,15 +6,15 @@ A web application which visualizes spectral data. The spectral data is acquired 
 
 The backend is an [Apollo GraphQL server](https://www.apollographql.com/docs/apollo-server/v2) that exposes two queries:
 
-- areas: Returns the names and x-axis ranges for all areas of interest in the spectrum.
+- areas: Returns the names and frequiencies ranges for all areas of interest in the spectrum.
 - spectrum: Returns the spectrum data points (_{ x, y }_ coordinates) for a specified area.
 
 ### Data Sources
 
-The server loads data from the following files:
+The server loads data from an SQLite database, which contains two tables:
 
--   `server/src/data/spectrum.json`: Defines the area names along with their corresponding x-axis ranges.
--   `server/src/data/areas.json`: Contains simulated spectral data as an array of _{ x, y }_ coordinates.
+- area: Stores information about different areas, including the name and corresponding frequency ranges for each area
+- spectrum: Stores simulated spectral data, represented as an array of _{ x, y }_ coordinates.
 
 ## Client
 
@@ -29,6 +29,7 @@ Ensure you have the following installed:
 - npm >= 10.8.2
 - Node.js = v18
 - yarn >= 1.22.0
+- sqlite3 >= 3.36.0
 
 ### Installation
 
@@ -38,6 +39,11 @@ yarn build
 ```
 
 ### Running the Application
+
+On first run, you need to initialize db with:
+```
+yarn db-init
+```
 
 To start both the server and the client, run:
 ```
